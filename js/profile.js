@@ -83,6 +83,11 @@ const uploadProfilePicture = () =>{
    const file = input.files[0]
    const profile_pic = document.getElementById('profile-pic')
 
-  
+   const fileReader = new FileReader()
+   fileReader.readAsDataURL(file)
+   fileReader.onload = (e)=>{
+    const fileString = e.target.result
+    profile_pic.src = fileString
+    localStorage.setItem('prifile-picture',fileString)
    }
 }
