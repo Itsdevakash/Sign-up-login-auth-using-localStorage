@@ -78,16 +78,21 @@ const showUserinfo  = ()=>{
 
 }
 
-const uploadProfilePicture = () =>{
-   const input = document.getElementById('profile-pic-input')
-   const file = input.files[0]
-   const profile_pic = document.getElementById('profile-pic')
+const uploadProfilePicture = () => {
+  const input = document.getElementById('profile-pic-input')
+  const profilePic = document.getElementById('profile-pic')
+  if (!input.files || !input.files[0]) {
+    return
+  }
+  const file = input.files[0]
 
-   const fileReader = new FileReader()
-   fileReader.readAsDataURL(file)
-   fileReader.onload = (e)=>{
-    const fileString = e.target.result
-    profile_pic.src = fileString
-    localStorage.setItem('prifile-picture',fileString)
-   }
+  const reader = new FileReader()
+  reader.readAsDataURL(file)
+
+  reader.onload = () => {
+    const fileString = reader.result
+    profilePic.src = fileString
+    localStorage.setItem('profile-picture', fileString)
+  }
 }
+
