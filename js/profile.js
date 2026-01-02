@@ -1,4 +1,3 @@
-
 var cropper = null
 window.onload = ()=>{
 
@@ -79,19 +78,11 @@ const showUserinfo  = ()=>{
 
 }
 
-const uploadProfileImg = () =>{
+const uploadProfilePicture = () =>{
    const input = document.getElementById('profile-pic-input')
    const file = input.files[0]
-   // const url = URL.createObjectURL(file)
    const profile_pic = document.getElementById('profile-pic')
-   // profile_pic.src = url
 
-   const fileReader = new FileReader()
-   fileReader.readAsDataURL(file)
-   fileReader.onload = (e)=>{
-    const fileString = e.target.result
-    profile_pic.src = fileString
-    localStorage.setItem('prifile-picture',fileString)
-   //  console.log(fileString)
+  
    }
 }
